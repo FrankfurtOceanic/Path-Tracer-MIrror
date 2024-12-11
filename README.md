@@ -1,4 +1,5 @@
-# Path-Tracer-MIrror
+# Path-Tracer-Public-Mirror  
+<img src="Path Tracing/Explicit_path_tracing_100spp_rr_prob_20.png" width = "500"> 
  A small mirror repo to show off my path tracer. I can't show the private repo and its code for now due to university policy.
 
 
@@ -36,4 +37,17 @@ Conversely, here there is low noise on the diffuse area and background are smoot
 <img src="MIS-LIS-importance-sampling/mis_veach_50_brdf_50_light_100spp.png" width = "500"> 
 Lastly, we can see how they combine to form a better overall image. Importantly, the total number of samples is the same for all 3 images (100 spp).   
 
-## Path Tracing
+## Path Tracing: Implicit, Explicit and Caustics
+For pathtarcing I implemented implicit, explicit version. Additioanlly, I added a russian roullete mechanism to reduce the bias that comes from having a maximum number of bounces. Implicit path tracing involves bouncing the ray and continuing until hitting a light source, running out of bounces or escaping the scene. In this case, the direct and indirect lighting is calculated together. In contrast, explicit path tracing separates the direct and indirect contributions with next event estimation. Indirect lighting is calculated in the same way but at each bounce the direct lighting is calculated using LIS. This results in faster convergence. Lastly, I added caustics to the implicit path tracer using snell's law for refraction. 
+
+### Implicit:  
+<img src="Path Tracing/Implicit_path_tracing_100spp.png" width = "500">    
+
+### Implicit with Caustics:  
+<img src="Path Tracing/caustic_Implicit_path_tracing_100spp.png" width = "500">   
+
+### Explicit:  
+<img src="Path Tracing/Explicit_path_tracing_100spp.png" width = "500"> 
+
+### Explicit with Russian roulette:  
+<img src="Path Tracing/Explicit_path_tracing_100spp_rr_prob_20.png" width = "500"> 
